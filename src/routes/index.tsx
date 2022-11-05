@@ -1,20 +1,29 @@
 import { For, Suspense } from "solid-js";
 import { A } from "solid-start";
-import { glob } from "./glob";
+import { Documents } from "~/types";
 
-const posts = glob("./posts/*.{md,mdx}");
+const posts = import.meta.glob("./posts/*.{md,mdx}", {
+  eager: true,
+  query: { meta: "" },
+}) as Documents;
+
+function postPath(key: string) {
+  return key.replace(/\.mdx?$/, "");
+}
 
 export default function Index() {
   return (
     <>
       <h1>Hendrik Mans</h1>
+
       <Suspense>
         <For each={Object.entries(posts)}>
           {([key, value]) => {
-            const fm = value.getFrontMatter();
+            const frontmatter = value.getFrontMatter();
+
             return (
               <p>
-                <A href={key}>{fm.title}</A>
+                <A href={postPath(key)}>{frontmatter.title}</A>
               </p>
             );
           }}
