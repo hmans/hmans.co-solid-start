@@ -1,32 +1,6 @@
 import { For, Suspense } from "solid-js";
 import { A } from "solid-start";
-
-type SolidStartFunctions<Frontmatter> = {
-  getHeadings: () => {
-    depth: number;
-    text: string;
-    slug: string;
-  }[];
-  getFrontMatter: () => Frontmatter;
-};
-
-function glob(mask: string) {
-  return import.meta.glob<
-    true,
-    any,
-    SolidStartFunctions<{
-      title?: string;
-      sectionTitle?: string;
-      order?: number;
-      section?: string;
-      sectionOrder?: number;
-      subsection?: string;
-    }>
-  >("./posts/*.{md,mdx}", {
-    eager: true,
-    query: { meta: "" },
-  });
-}
+import { glob } from "./glob";
 
 const posts = glob("./posts/*.{md,mdx}");
 
