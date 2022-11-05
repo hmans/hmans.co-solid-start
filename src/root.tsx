@@ -24,20 +24,26 @@ export default function Root() {
       </Head>
 
       <Body>
-        <ErrorBoundary>
+        <div class="container">
           <A href="/">Index</A>
           <A href="/about">About</A>
 
-          <h1>Hendrik Mans</h1>
+          <h1>hmans.co</h1>
+          <h2>Turning the Browser into a Game Engine, One Package at a Time</h2>
 
-          <Suspense>
-            <main>
-              <Routes>
-                <FileRoutes />
-              </Routes>
-            </main>
-          </Suspense>
-        </ErrorBoundary>
+          <main>
+            <ErrorBoundary>
+              <Suspense>
+                <main>
+                  <Routes>
+                    <FileRoutes />
+                  </Routes>
+                </main>
+              </Suspense>
+            </ErrorBoundary>
+          </main>
+        </div>
+
         <Scripts />
       </Body>
     </Html>
