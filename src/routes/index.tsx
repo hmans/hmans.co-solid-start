@@ -13,22 +13,18 @@ function postPath(key: string) {
 
 export default function Index() {
   return (
-    <>
-      <h1>Hendrik Mans</h1>
+    <Suspense>
+      <For each={Object.entries(posts)}>
+        {([key, value]) => {
+          const frontmatter = value.getFrontMatter();
 
-      <Suspense>
-        <For each={Object.entries(posts)}>
-          {([key, value]) => {
-            const frontmatter = value.getFrontMatter();
-
-            return (
-              <p>
-                <A href={postPath(key)}>{frontmatter.title}</A>
-              </p>
-            );
-          }}
-        </For>
-      </Suspense>
-    </>
+          return (
+            <p>
+              <A href={postPath(key)}>{frontmatter.title}</A>
+            </p>
+          );
+        }}
+      </For>
+    </Suspense>
   );
 }

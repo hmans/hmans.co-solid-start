@@ -27,6 +27,9 @@ export default function Root() {
         <ErrorBoundary>
           <A href="/">Index</A>
           <A href="/about">About</A>
+
+          <h1>Hendrik Mans</h1>
+
           <Suspense>
             <main>
               <Routes>
