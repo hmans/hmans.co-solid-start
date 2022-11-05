@@ -12,6 +12,7 @@ export default defineConfig({
       enforce: "pre",
     },
     solid({
+      adapter: "solid-start-vercel",
       extensions: [".mdx", ".md"],
     }),
   ],
