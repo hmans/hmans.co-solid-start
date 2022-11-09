@@ -1,3 +1,4 @@
+import { useLocation } from "@solidjs/router";
 import { Outlet } from "solid-start";
 import { Glob } from "~/types";
 
@@ -9,10 +10,19 @@ export type PostFrontmatter = {
 
 export type Documents = Glob<PostFrontmatter>;
 
+function useCurrentPost() {
+  const location = useLocation();
+  return posts.find((p) => p.path === location.pathname);
+}
+
 export default function PostsLayout() {
+  const post = useCurrentPost();
+
   return (
     <article>
-      <h1>Insert Post Title from Frontmatter Here</h1>
+      <h1>
+        <em>{post.title}</em> {post.subtitle}
+      </h1>
       <Outlet />
     </article>
   );

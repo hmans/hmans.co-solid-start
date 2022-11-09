@@ -51,4 +51,13 @@ pre.astro-code {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer */
+article h1 {
+  color: #888;
+  font-size: 200%;
+  line-height: 1.1;
+}
+
+article h1 em {
+  font-style: normal;
+  color: hotpink;
+}
