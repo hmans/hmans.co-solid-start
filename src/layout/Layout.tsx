@@ -2,15 +2,13 @@ import { JSX, Suspense } from "solid-js";
 import ErrorBoundary, {
   A,
   Body,
-  FileRoutes,
   Head,
   Html,
   Meta,
-  Routes,
   Scripts,
   Title,
 } from "solid-start";
-import Footer from "~/components/Footer";
+import Footer from "./Footer";
 
 export default function Layout({ children }: { children?: JSX.Element }) {
   return (
