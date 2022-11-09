@@ -12,6 +12,7 @@ import {
   Scripts,
   Title,
 } from "solid-start";
+import Footer from "./components/Footer";
 import "./root.scss";
 
 export default function Root() {
@@ -24,25 +25,27 @@ export default function Root() {
       </Head>
 
       <Body>
-        <div class="container">
+        <header role="banner">
           <A href="/">Index</A>
           <A href="/about">About</A>
+        </header>
 
-          <h1>hmans.co</h1>
-          <h2>Turning the Browser into a Game Engine, One Package at a Time</h2>
+        <h1>hmans.co</h1>
+        <h2>Turning the Browser into a Game Engine, One Package at a Time</h2>
 
-          <main>
-            <ErrorBoundary>
-              <Suspense>
-                <main>
-                  <Routes>
-                    <FileRoutes />
-                  </Routes>
-                </main>
-              </Suspense>
-            </ErrorBoundary>
-          </main>
-        </div>
+        <main>
+          <ErrorBoundary>
+            <Suspense>
+              <main>
+                <Routes>
+                  <FileRoutes />
+                </Routes>
+              </main>
+            </Suspense>
+          </ErrorBoundary>
+        </main>
+
+        <Footer />
 
         <Scripts />
       </Body>
