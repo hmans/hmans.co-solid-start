@@ -1,14 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
-:root {
-  --font: 16px/1.5 "Inter", sans-serif;
+html {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+  font: 20px/1.5 system-ui, sans-serif;
+
+  /* Nicer font smoothing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
 }
 
 body {
-  font: var(--font);
-}
-
-div.container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+a {
+  color: orange;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  color: hotpink;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+code {
+  font-family: "Source Code Pro", Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+pre.astro-code {
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 85%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
