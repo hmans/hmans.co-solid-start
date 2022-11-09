@@ -2,10 +2,6 @@ import { For, Suspense } from "solid-js";
 import { A } from "solid-start";
 import { posts } from "./posts";
 
-function postPath(key: string) {
-  return key.replace(/\.mdx?$/, "");
-}
-
 export default function Index() {
   return (
     <Suspense>
@@ -13,7 +9,7 @@ export default function Index() {
         {(post) => {
           return (
             <p>
-              <A href={postPath(post.key)}>{post.title}</A> {post.subtitle}
+              <A href={post.path}>{post.title}</A> {post.subtitle}
             </p>
           );
         }}

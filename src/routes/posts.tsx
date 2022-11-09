@@ -18,18 +18,23 @@ export default function PostsLayout() {
   );
 }
 
-const documents = import.meta.glob("./posts/*.{md,mdx}", {
+const documents = import.meta.glob("~/routes/posts/*.{md,mdx}", {
   eager: true,
   query: { meta: "" },
 }) as Documents;
 
 /* Todo: do some processing on the documents here */
-export const posts = Object.entries(documents).map(([key, doc]) => {
+export const posts = Object.entries(documents).map(([filename, doc]) => {
   const frontmatter = doc.getFrontMatter();
 
   return {
     ...frontmatter,
-    key,
+    path:
+      "/posts/" +
+      filename
+        .split("/")
+        .pop()!
+        .replace(/\.mdx?$/, ""),
     date: frontmatter.date ? Date.parse(frontmatter.date) : undefined,
   };
 });
