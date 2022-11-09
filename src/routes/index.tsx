@@ -1,11 +1,6 @@
 import { For, Suspense } from "solid-js";
 import { A } from "solid-start";
-import { Documents } from "~/types";
-
-const posts = import.meta.glob("./posts/*.{md,mdx}", {
-  eager: true,
-  query: { meta: "" },
-}) as Documents;
+import { posts } from "~/posts";
 
 function postPath(key: string) {
   return key.replace(/\.mdx?$/, "");
