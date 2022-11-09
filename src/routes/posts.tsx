@@ -10,7 +10,12 @@ export type PostFrontmatter = {
 export type Documents = Glob<PostFrontmatter>;
 
 export default function PostsLayout() {
-  return <Outlet />;
+  return (
+    <article>
+      <h1>Insert Post Title from Frontmatter Here</h1>
+      <Outlet />
+    </article>
+  );
 }
 
 const documents = import.meta.glob("./posts/*.{md,mdx}", {
@@ -18,4 +23,5 @@ const documents = import.meta.glob("./posts/*.{md,mdx}", {
   query: { meta: "" },
 }) as Documents;
 
+/* Todo: do some processing on the documents here */
 export const posts = documents;
