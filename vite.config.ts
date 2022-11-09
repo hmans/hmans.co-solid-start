@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [
     await mdx(),
     solid({
+      prerenderRoutes: ["/api/feed"],
       adapter: "solid-start-vercel",
       extensions: [".mdx", ".md"],
     }),
