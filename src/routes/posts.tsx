@@ -1,5 +1,13 @@
 import { Outlet } from "solid-start";
-import { Documents } from "~/types";
+import { Glob } from "~/types";
+
+export type PostFrontmatter = {
+  title?: string;
+  sectionTitle?: string;
+  date?: Date;
+};
+
+export type Documents = Glob<PostFrontmatter>;
 
 export default function PostsLayout() {
   return <Outlet />;
