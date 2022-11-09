@@ -4,7 +4,7 @@ import { Glob } from "~/types";
 export type PostFrontmatter = {
   title?: string;
   subtitle?: string;
-  date?: Date;
+  date?: string;
 };
 
 export type Documents = Glob<PostFrontmatter>;
@@ -24,4 +24,12 @@ const documents = import.meta.glob("./posts/*.{md,mdx}", {
 }) as Documents;
 
 /* Todo: do some processing on the documents here */
-export const posts = documents;
+export const posts = Object.entries(documents).map(([key, doc]) => {
+  const frontmatter = doc.getFrontMatter();
+
+  return {
+    ...frontmatter,
+    key,
+    date: frontmatter.date ? Date.parse(frontmatter.date) : undefined,
+  };
+});

@@ -9,14 +9,11 @@ function postPath(key: string) {
 export default function Index() {
   return (
     <Suspense>
-      <For each={Object.entries(posts)}>
-        {([key, value]) => {
-          const frontmatter = value.getFrontMatter();
-
+      <For each={posts}>
+        {(post) => {
           return (
             <p>
-              <A href={postPath(key)}>{frontmatter.title}</A>{" "}
-              {frontmatter.subtitle}
+              <A href={postPath(post.key)}>{post.title}</A> {post.subtitle}
             </p>
           );
         }}
