@@ -9,6 +9,7 @@ import ErrorBoundary, {
   Title,
 } from "solid-start";
 import Footer from "./Footer";
+import Header from "./Header";
 
 export default function Layout({ children }: { children?: JSX.Element }) {
   return (
@@ -20,13 +21,7 @@ export default function Layout({ children }: { children?: JSX.Element }) {
       </Head>
 
       <Body>
-        <header role="banner">
-          <A href="/">Index</A>
-          <A href="/about">About</A>
-        </header>
-
-        <h1>hmans.co</h1>
-        <h2>Turning the Browser into a Game Engine, One Package at a Time</h2>
+        <Header />
 
         <main>
           <ErrorBoundary>
