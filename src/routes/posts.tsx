@@ -3,7 +3,7 @@ import { Glob } from "~/types";
 
 export type PostFrontmatter = {
   title?: string;
-  sectionTitle?: string;
+  subtitle?: string;
   date?: Date;
 };
 
