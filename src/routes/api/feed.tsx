@@ -19,7 +19,7 @@ const feed = new Feed({
 });
 
 posts.forEach((post) => {
-  const url = `https://hmans.co/posts/${post.path}`;
+  const url = `https://hmans.co${post.path}`;
 
   feed.addItem({
     title: post.title!,
