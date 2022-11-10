@@ -45,6 +45,6 @@ export const posts = Object.entries(documents).map(([filename, doc]) => {
         .split("/")
         .pop()!
         .replace(/\.mdx?$/, ""),
-    date: frontmatter.date ? Date.parse(frontmatter.date) : undefined,
+    date: frontmatter.date ? new Date(frontmatter.date) : undefined,
   };
 });
